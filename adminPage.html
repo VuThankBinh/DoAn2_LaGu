@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị</title>
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- <script src="js/seach_sp.js"></script> -->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="img/favicon.png" pe="image/png">
+
+
+    <script src="js/admi.js"></script>
+
+</head>
+
+<body>
+    <div class="container" style="margin-top: 0px;position: relative;">
+        <div class="banner-top1">
+            <div>
+                <div class="logo">
+                    <h1 class="hidden"></h1>
+                    <a href="#" title="Khăn Phụ Kiện">
+                        <img src="img/logo.png" alt="Khăn Phụ Kiện">
+                    </a>
+
+                </div>
+            </div>
+            <div>
+                <div style="margin-top: 1%; width: 100%;">
+                    <form action="#">
+                        <div style="display: flex;">
+                            <input type="hidden" name="type" value="product">
+                            <form action="#" style="margin:auto;max-width:300px">
+                                <input type="text" placeholder="     Bạn cần tìm gì?" name="search2"
+                                    style="line-height: 40px;font-size: 12px; border-radius: 7px;color: grey;width: 320px;">
+                                <button type="submit"
+                                    style="margin-top: 0.5%;margin-left: -45px; border: none;width: 40px;height: 40px;background-color: white"><i
+                                        class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="float: right;text-align: right; width: 50%;margin-right: 8%;">
+                <ul>
+                    <li>
+                        <div>
+                            <button
+                                style="border-radius:50px ; font-size:14px;width: 40px;height: 40px; border: none;"><i
+                                    class="fa-solid fa-phone" aria-hidden="true"></i></button>
+                            BÁN HÀNG: <a href="tel:0909251500" style="color: black;">
+                                <span>0909251500</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <a href="#" style="color: black; font-size:14px">
+                                <i class="fa-regular fa-file" aria-hidden="true"></i>
+                                <span">82 Hồ Biểu Chánh, Phường 11, Quận Phú Nhuận, Tp Hồ Chí Minh</span>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="menu-r">
+            
+            <a href="/Login.html"><i class="fa-solid fa-user" style="margin-right: 1%;"></i></a>
+
+        </div>
+        <div style="width: 100%;height: 40px;background-color: rgb(50, 49, 49);margin-top: 30px;border-radius: 10px;">
+            <h3 style="color: white;width: 100%;text-align: center;line-height: 40px;">Admin Page</h3>
+        </div>
+    </div>
+    <div style="display: flex;width: 100%;">
+        <div id="menu-admin">
+            <div>
+                <i class="fa-solid fa-bars" style="margin-left: -10px;display: none;" onclick="showhide() "
+                    id="menuAn"></i>
+            </div>
+            <div id="menu-admin-cc">
+                <ul id="menucc">
+                    <i class="fa-solid fa-bars" style="margin-left: -10px;" onclick="showhide()"></i>
+                    <b onclick="showhide()">Danh mục</b>
+                    <li onclick="showHome()" style="margin-top: 5px;">
+                        <span>
+                            <i class="fa-solid fa-circle-user"></i>
+                        </span>
+                        <b>Home</b>
+                    </li>
+                    <li onclick="showThongke()">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <b>Thống kê</b>
+
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-list-ul" onclick="showHideInfo()"></i>
+                        <b onclick="showHideInfo()">Thông tin chung</b>
+                        <i class="fa-solid fa-angle-down" onclick="showHideInfo()"></i>
+                        <ul id="thongtinchung">
+                            <li onclick="showLoaiSP()"><i class="fa-brands fa-artstation"></i>Quản lý loại sản phẩm</li>
+                            <li onclick="showSanPham()"><i class="fa-solid fa-desktop"></i>Quản lý sản phẩm</li>
+                            <li onclick="showNhaCungCap()"><i class="fa-solid fa-address-card"></i>Quản lý nhà cung cấp
+                            </li>
+                            <li onclick="showHDN()"><i class="fa-solid fa-newspaper"></i>Quản lý hóa đơn nhập</li>
+                            <li onclick="showCTKM()"><i class="fa-solid fa-bullhorn"></i>Quản lý CTKM</li>
+                        </ul>
+                    </li>
+                    <li style="width: 100%;padding-right: 15px !important;">
+                        <i class="fa-solid fa-building-user" onclick="showHideDonHang()"
+                            style="margin-left: 3px !important;"></i>
+                        <b onclick="showHideDonHang()">Quản lý đơn đặt hàng</b>
+                        <i style="margin-top: 2px;" class="fa-solid fa-angle-down" onclick="showHideDonHang()"></i>
+                        <ul id="thongtindonhang">
+                            <li onclick="showDonHangChuaXN()">-- Đơn hàng chưa xác nhận</li>
+                            <li onclick="showDonHangDaXN()">-- Đơn hàng đã xác nhận</li>
+                            <li onclick="showDonHangDangGiao()">-- Đơn hàng đang giao</li>
+                            <li onclick="showDonHangDaGiao()">-- Đơn hàng đã giao thành công</li>
+                            <li onclick="showDonHangHoanTra()">-- Đơn hàng hoàn trả</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="danhmucview">
+            <div id="homeview" class="hidden">
+                Hello
+            </div>
+            <div id="thongkeview" class="visiable">
+                <b>Thống kê</b>
+                <div style="display: flex;margin-top: 20px;">
+                    <div>
+                        <p style="margin-left: 100px;">Doanh thu từ đầu năm đến nay</p>
+                        <div style="width: 400px; height: 200px;">
+                            <!-- Create a canvas element to draw the chart -->
+                            <canvas id="myLineChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div style="margin-left: 8%;">
+                        <p style="margin-left: 140px;">Danh sách sản phẩm tồn</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã sản phẩm</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Số lượng tồn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Example rows, you can dynamically generate these based on your data -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>NC071</td>
+
+                                        <td style="width: 300px;">Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ
+                                            nhỏ màu nâu tanin
+                                        </td>
+                                        <td>30</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>NC018</td>
+                                        <td style="width: 200px;">Mũ nón cói đi biển rộng vành tròn phối nơ đẹp cho nữ
+                                        </td>
+                                        <td>10</td>
+
+
+                                    </tr>
+
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div style="display: flex;margin-top: 10px;">
+                    <h4  style="margin-top: 5px;">Doanh thu hôm nay:</h4>
+                    <button  class="btnxl">3,000,000đ</button>
+                </div>
+
+            </div>
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                // Sample data for the line chart
+                var data = {
+                    labels: [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December"
+                    ],
+                    datasets: [{
+                        label: "Doanh thu",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 2,
+                        data: [60000000, 70000000, 50000000, 40000000, 60000000, 20000000, 25000000, 50000000, 40000000, 60000000, 20000000, 25000000],
+                        fill: false,
+                    }]
+                };
+
+                // Get the canvas element
+                var ctx = document.getElementById('myLineChart').getContext('2d');
+
+                // Create a new line chart
+                var myLineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                type: 'category',
+                                labels: data.labels,
+                            },
+                        },
+                    },
+                });
+            </script>
+
+            <div id="danhmucsp" class="hidden">
+                <b style="font-size: 20px;">Tìm kiếm</b>
+
+                <div id="tkLoai">
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Mã sản phẩm:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="maloai" placeholder="Nhập mã loại sản phẩm">
+                            </td>
+                        </tr>
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Tên sản phẩm:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="tenloai" placeholder="Nhập tên loại sản phẩm">
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="TkLoaiBtn"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+                <hr style="margin-top: 10px;">
+                <button id="ThemLoaiBtn"><i class="fa-solid fa-plus"></i> Thêm sản phẩm mới</button>
+                <div class="tablechung">
+                    <table id="#tableloai">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã loại sản phẩm</th>
+                                <th>Tên loại sản phẩm</th>
+                                <th>Mô tả</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>ABC123</td>
+                                <td>Sản phẩm A</td>
+                                <td>Mô tả cho sản phẩm A</td>
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>XYZ789</td>
+                                <td>Sản phẩm B</td>
+                                <td>Mô tả cho sản phẩm B</td>
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div id="sanpham" class="hidden">
+                <b style="font-size: 20px;">Tìm kiếm</b>
+
+                <div id="tkSP">
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Mã sản phẩm:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="masp" placeholder="Nhập mã sản phẩm">
+                            </td>
+                        </tr>
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Tên sản phẩm:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="tensp" placeholder="Nhập tên sản phẩm">
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="TkspBtn"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+                <hr style="margin-top: 10px;">
+                <button id="ThemspBtn"><i class="fa-solid fa-plus"></i> Thêm sản phẩm mới</button>
+                <div class="tablechung table-container">
+                    <table id="#tablesanpham">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã sản phẩm</th>
+                                <th>Hình ảnh minh họa</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>NC018</td>
+                                <td><img src="img/mu_non_di_bien_vintage_018__1__0d0d359e427f48ee9006aaac36e25267_large.jpg"
+                                        alt="" style="width: 80px;height: 80px;">
+                                </td>
+                                <td style="width: 200px;">Mũ nón cói đi biển rộng vành tròn phối nơ đẹp cho nữ
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>NC071</td>
+                                <td><img src="img/8715834439_1514371716_copy_large.jpg" alt=""
+                                        style="width: 80px;height: 80px;">
+                                </td>
+                                <td style="width: 200px;">Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ nhỏ màu
+                                    nâu tanin
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="ncc" class="hidden">
+                <b style="font-size: 20px;">Tìm kiếm</b>
+
+                <div id="tkncc">
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Mã nhà cung cấp:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="mancc" placeholder="Nhập mã nhà cung cấp">
+                            </td>
+                        </tr>
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Tên nhà cung cấp:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="tenncc" placeholder="Nhập tên nhà cung cấp">
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="TknccBtn"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+                <hr style="margin-top: 10px;">
+                <button id="ThemnccBtn"><i class="fa-solid fa-plus"></i> Thêm nhà cung cấp mới</button>
+                <div class="tablechung">
+                    <table id="#tablencc">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã nhà cung cấp</th>
+                                <th>Tên nhà cung cấp</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>NCC1</td>
+                                <td>chị Phương</td>
+                                <td style="width: 200px;">0936771257</td>
+                                <td style="width: 300px;">
+                                    Thanh Miện, Hải Dương
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>NCC2</td>
+                                <td>chị Hiền</td>
+                                <td style="width: 200px;">0376401198</td>
+                                <td style="width: 300px;">
+                                    Duy Tiên, Hà Nam
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="HoaDonNhap" class="hidden">
+                <b style="font-size: 20px;">Tìm kiếm</b>
+
+                <div id="tkhdn">
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Mã hóa đơn nhập:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="mahdn" placeholder="Nhập mã hóa đơn nhập">
+                            </td>
+                        </tr>
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Thời gian:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="date" id="ngaytaohdn">
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="TkhdnBtn"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+                <hr style="margin-top: 10px;">
+                <button id="ThemhdnBtn"><i class="fa-solid fa-plus"></i> Thêm hóa đơn mới</button>
+                <div class="tablechung">
+                    <table id="#tablencc">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã hóa đơn</th>
+                                <th>Mã nhà cung cấp</th>
+                                <th>Tên nhà cung cấp</th>
+                                <th>Ngày tạo</th>
+                                <th>Tổng hóa đơn</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HDN1</td>
+                                <td>NCC1</td>
+                                <td>chị phương</td>
+                                <td style="width: 200px;">12-11-2023</td>
+                                <td style="width: 300px;">
+                                    1,000,000,000đ
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>HDN2</td>
+                                <td>NCC2</td>
+                                <td>chị Hiền</td>
+                                <td style="width: 200px;">12-11-2023</td>
+                                <td style="width: 300px;">
+                                    600,000,000đ
+                                </td>
+                                <td>
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="ctkm" class="hidden">
+                <b style="font-size: 20px;">Tìm kiếm</b>
+
+                <div id="tkhdn">
+                    <table style="border: none !important">
+                        <tr style="border: none !important">
+                            <td style="border: none !important">
+                                <h4>Mã chương trình khuyến mãi:</h4>
+                            </td>
+                            <td style="border: none !important">
+                                <input type="text" id="mactkm" placeholder="Nhập mã hóa đơn nhập">
+                            </td>
+                        </tr>
+                    </table>
+                    <button id="TkctkmBtn"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+                <hr style="margin-top: 10px;">
+                <button id="ThemctkmBtn"><i class="fa-solid fa-plus"></i> Thêm CTKM mới</button>
+                <div class="tablechung">
+                    <table id="#tablectkm">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã CTKM</th>
+                                <th>Nội dung khuyến mãi</th>
+                                <th>Thời gian áp dụng</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>CtKM001</td>
+                                <td style="width: 300px;">
+                                    Giảm 20% cho hóa đơn từ 3 triệu đồng
+                                </td>
+                                <td>12/12/2023 - 31/12/2023</td>
+
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>CtKM002</td>
+                                <td style="width: 300px;">
+                                    Giảm 10% cho hóa đơn từ 2 triệu đồng
+                                </td>
+                                <td>12/12/2023 - 31/12/2023</td>
+
+                                <td>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="donHangChuaXN" class="hidden">
+                <h3 style="display: flex;justify-content: center;">Danh sách đơn hàng chưa xác nhận</h3>
+                <div class="tablechung">
+                    <table id="#tabledhchuaxn">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Đơn hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng hóa đơn</th>
+                                <th>Xác nhận</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HD001</td>
+                                <td>
+                                    Nguyễn Thị Thanh Thảo
+                                </td>
+                                <td>0912336504</td>
+                                <td style="width: 300px;">Khoái Châu - Hưng Yên</td>
+                                <td>1,200,000đ</td>
+                                <td><a href="">xác nhận</a></td>
+                                <td style="border: none !important;">
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="donhangDaXacNhan" class="hidden">
+                <h3 style="display: flex;justify-content: center;">Danh sách đơn hàng đã xác nhận</h3>
+                <div class="tablechung">
+                    <table id="#tabledhdaxn">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Đơn hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng hóa đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HD001</td>
+                                <td>
+                                    Nguyễn Thị Thanh Thảo
+                                </td>
+                                <td>0912336504</td>
+                                <td style="width: 300px;">Khoái Châu - Hưng Yên</td>
+                                <td>1,200,000đ</td>
+                                <td style="border: none !important;">
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="DonHangDangGiao" class="hidden">
+                <h3 style="display: flex;justify-content: center;">Danh sách đơn hàng đang giao</h3>
+                <div class="tablechung">
+                    <table id="#tabledhdanggiao">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Đơn hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng hóa đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HD001</td>
+                                <td>
+                                    Nguyễn Thị Thanh Thảo
+                                </td>
+                                <td>0912336504</td>
+                                <td style="width: 300px;">Khoái Châu - Hưng Yên</td>
+                                <td>1,200,000đ</td>
+                                <td style="border: none !important;">
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="DonHangDaGiao" class="hidden">
+                <h3 style="display: flex;justify-content: center;">Danh sách đơn hàng đã giao</h3>
+                <div class="tablechung">
+                    <table id="#tabledhdagiao">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Đơn hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng hóa đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HD001</td>
+                                <td>
+                                    Nguyễn Thị Thanh Thảo
+                                </td>
+                                <td>0912336504</td>
+                                <td style="width: 300px;">Khoái Châu - Hưng Yên</td>
+                                <td>1,200,000đ</td>
+                                <td style="border: none !important;">
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="DonHoanTra" class="hidden">
+                <h3 style="display: flex;justify-content: center;">Danh sách đơn hàng đã hoàn trả</h3>
+                <div class="tablechung">
+                    <table id="#tabledhdatra">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Đơn hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng hóa đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, you can dynamically generate these based on your data -->
+                            <tr>
+                                <td>1</td>
+                                <td>HD001</td>
+                                <td>
+                                    Nguyễn Thị Thanh Thảo
+                                </td>
+                                <td>0912336504</td>
+                                <td style="width: 300px;">Khoái Châu - Hưng Yên</td>
+                                <td>1,200,000đ</td>
+                                <td style="border: none !important;">
+                                    <i class="fa-regular fa-eye"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background-color: black; color:white;margin-top: 5%;padding-left: 5%;">
+        <div style=" font-family:initial; display:flex;">
+            <div style="margin-top: 3%;">
+                <img src="img/logo-footer.png?v=18" alt="">
+            </div>
+            <div style="margin-top: 3%;margin-left: 2%;">
+                <h4>Khăn Phụ Kiện</h4>
+                <ul>
+                    <li>CÔNG TY TNHH HILA VIỆT NAM<br>
+                        Ngày ĐK: 16/04/2018<br>
+                        Mã Số Thuế: 0314987556<br>
+                        Số ĐKKD: 41P8018868 <br>
+                        Ngày cấp: 12/09/2017<br>
+                        Phòng đăng ký kinh doanh Sở Kế Hoạch Đầu Tư TPHCM<br>
+                        Hotline: 0909.25.15.00
+                    </li>
+                </ul>
+
+                <h4><i class="fa fa-map-signs"></i> HỆ THỐNG CỬA HÀNG</h4>
+
+                <ul>
+                    <li><i class="fa fa-map-marker mr5"></i>82 Hồ Biểu Chánh, Phường 11, Quận Phú Nhuận, Tp Hồ Chí Minh
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-top: 3%; margin-left: 1%;margin-right: 3%;">
+                <h4>THÔNG TIN HỖ TRỢ</h4>
+                <ul>
+                    <li>
+                        <a href="#" title="Thanh Toán" style="color: white;">Thanh Toán</a>
+                    </li>
+
+                    <li>
+                        <a href="#" title="Chính Sách Giao Nhận" style="color: white;">Chính Sách Giao Nhận</a>
+                    </li>
+
+                    <li>
+                        <a href="#" title="Đổi Trả &amp; Bảo Hành" style="color: white;">Đổi Trả &amp; Bảo Hành</a>
+                    </li>
+
+                    <li>
+                        <a href="#" title="Chính Sách Bảo Mật" style="color: white;">Chính Sách Bảo Mật</a>
+                    </li>
+
+                    <li>
+                        <a href="#" title="Khách Hàng Thân Thiết" style="color: white;">Khách Hàng Thân Thiết</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-top: 3%;">
+                <h4 class="">KẾT NỐI VỚI CHÚNG TÔI</h4>
+                <div class="social">
+                    <ul class="footer-list-menu">
+                        <li>Hãy kết nối với chúng tôi.</li>
+                    </ul>
+                    <ul style="display: flex;justify-content: center; margin-top: 5px;margin-bottom: 5px;">
+
+                        <li style="margin-right: 15px;">
+                            <a target="_blank" href="https://www.facebook.com/yenshop1991">
+                                <i class="fa-brands fa-facebook" style="color: #f2f2f2;font-size: 30px;"></i>
+                            </a>
+                        </li>
+                        <li style="margin-right: 15px;">
+                            <a style="color: white;" target="_blank" href="https://www.instagram.com/khanphukien/">
+                                <i class="fa-brands fa-instagram" style="font-size: 30px;"></i></a>
+                        </li>
+
+
+                        <li style="margin-right: 15px;width: 30%;">
+                            <a style="color: white;" target="_blank"
+                                href="https://www.youtube.com/channel/UCJquPQtn2dqiZ33IzGIP_zA"><i
+                                    class="fa-brands fa-youtube" style="font-size: 30px;"></i></a>
+                        </li>
+
+                    </ul>
+
+                    <div>
+                        <a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=38057" target="_blank">
+                            <img src="img/dkbocongthuong.png?v=18" alt="Bộ công thương">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </DIV>
+        <div style="margin-top: 3%;">
+            <p style="text-align: center;padding-bottom: 5px;">Một sản phẩm của Hila Việt Nam</p>
+        </div>
+    </footer>
+</body>

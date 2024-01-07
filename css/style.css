@@ -91,7 +91,7 @@ nav>ul li a {
     line-height: 50px;
     color: gray;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10.5px;
 }
 
 nav ul li:first-child {
@@ -331,7 +331,7 @@ nav>ul li>ul li>ul {
     }
 
     .col-2 {
-        width: 15.2%;
+        width: 15%;
     }
 
     .col-3 {

@@ -9,15 +9,20 @@
         content="Khăn choàng, Nón Thời Trang, Khăn Turban, Băng Đô &amp; Cài Tóc, Khăn Quàng Cổ &amp; Phụ Kiện Thời Trang Nữ">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="fontawesome/css/all.min.css" rel="stylesheet">
+    <script src="js/angular/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/chucnang.js"></script>
     <title>
         Khăn Choàng, Mũ Nón Thời Trang, Khăn Turban, Băng Đô Vải &amp; Cài Tóc.... – Khăn Phụ Kiện
     </title>
-    <link rel="shortcut icon" href="img/favicon.png"
-        type="image/png">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+
+   
+    <script src="js/angular/global.js"></script>
+    <script src="js/angular/TrangChu.js"></script>
 </head>
 
-<body>
+<body ng-app="AppBanHang" ng-controller="HomeCtrl">
     <!-- MENU MAIN -->
 
     <div class="container">
@@ -74,12 +79,21 @@
         </div>
         <div class="menu-r">
             <a href="GioHang.html"><i class="fa-solid fa-cart-shopping"><span id="cart-count">0</span></i></a>
-            <a href="Login.html" id="user" style="font-size: 10px;"><i class="fa-solid fa-user"  style="margin-right: 1%;"></i></a>
-            
+            <a href="Login.html" id="user" style="font-size: 10px;"><i class="fa-solid fa-user"
+                    style="margin-right: 1%;"></i></a>
+
         </div>
         <nav>
-
             <ul>
+                <li ng-repeat="x in listDanhMuc"> 
+                    <a href="#" title="{{x.tenLoai}}">
+                    <img ng-src="{{current_img + x.hinhAnhMinhHoa}}" alt="">
+                    {{x.tenLoai}}
+                    </a>
+
+                </li>
+            </ul>
+            <!-- <ul>
                 <li>
                     <a href="#" title="Trang sức">
                         <img src="img/icon_menu_1.png?v=18" alt="">
@@ -91,7 +105,6 @@
                                     style="margin-left:60%;margin-top: 10px;"></i>
     
                             </a>
-                            <!-- menu con sổ ngang cấp 3 -->
                             <ul>
                                 <li><a href="#" title="Bông tai bạc cao cấp">Bông tai bạc cao cấp</a></li>
                                 <li><a href="#" title="Bông tai Boho Vitage">Bông tai Boho Vitage</a></li>
@@ -141,7 +154,6 @@
                             src="img/icon_menu_3.png?v=18" alt="">
                         <br>Khăn choàng
                     </a>
-                    <!-- menu con sổ xuống cấp 1 -->
                     <ul>
                         <li><a href="#" title="Khăn choàng bán chạy">Khăn choàng bán chạy</a></li>
                         <li><a href="#" title="Khăn choàng Lụa/Silk">Khăn choàng Lụa/Silk</a></li>
@@ -262,17 +274,17 @@
                 </li>
     
     
-            </ul>
+            </ul> -->
         </nav>
     </div>
     <div class="silde">
-        <img class="silde-img" src="img/slide_index_1.jpg"
-            style="display: block;">
+        <img class="silde-img" src="img/slide_index_1.jpg" style="display: block;">
         <img class="silde-img" src="img/slideshow1.png" style="display: none; width: 50%;">
         <div class="btn-left" onclick="showL()">&lt;</div>
         <div class="btn-right" onclick="showR()">&gt;</div>
 
     </div>
+    
     <div style="margin-top:20px; width: 85%;margin-left: 10%;margin-right: 10%;">
         <div style="display: flex;justify-content: center;">
 
@@ -281,8 +293,7 @@
                 <div>
                     <div style="display: flex;">
                         <div style="width: 16%;">
-                            <img src="img/icon-service-transport.png?v=18"
-                                alt="">
+                            <img src="img/icon-service-transport.png?v=18" alt="">
                         </div>
                         <div style="margin-left: 1%;margin-top: 2%;">
                             <div>Hoàn tiền 123%</div>
@@ -296,8 +307,7 @@
                 <div>
                     <div style="display: flex;">
                         <div style="width: 16%;">
-                            <img src="img/icon-service-change.png?v=18"
-                                alt="">
+                            <img src="img/icon-service-change.png?v=18" alt="">
                         </div>
                         <div style="margin-left: 1%;margin-top: 2%;">
                             <div>Giao hàng 2H</div>
@@ -311,8 +321,7 @@
                 <div>
                     <div style="display: flex;">
                         <div style="width: 9%;">
-                            <img src="img/icon-service-recieve-money.png?v=18"
-                                alt="">
+                            <img src="img/icon-service-recieve-money.png?v=18" alt="">
                         </div>
                         <div style="margin-left: 1%;margin-top: 2%;">
                             <div>Miễn phí đổi trả</div>
@@ -345,45 +354,40 @@
             </div>
         </div>
     </div>
+    
     <div style="width: 85%;margin-left: 13%;margin-right: 5%;">
         <div class="panel">
             <div class="row">
 
-                <div class="col-2 col-s-4 box">
+                <div class="col-2 col-s-4 box" ng-repeat="x1 in listSanPhamNon">
                     <div class="box-content">
 
                         <div class="box-img">
-                            <div class="box-giamgia">-27%</div>
                             <img class="anh1"
-                                src="img/mu_non_di_bien_vintage_071__6__302a08a292054bc4b7e3769d5012e891_1024x1024.jpg">
-                            <img class="anh2"
-                                src="img/8715834439_1514371716_copy_large.jpg">
+                                src="{{x1.hinhDaiDien}}">
+                            <img class="anh2" src="{{x1.hinhAnDi}}">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ nhỏ màu nâu tanin
-                                - Mã NC071</div>
+                            <div class="box-name"><a href="CHiTietSP.html?id={{x1.maSanPham}}" style="text-decoration: none;color: black;">{{x1.tenSanPham}}</a></div>
                             <div style="color:purple; font-size: 12px;">
-                                <span>245,000 đ</span>
-                                <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                    đ</span>
+                                <span>{{x1.donGia}} đ</span>
 
                             </div>
                             <button
-                                onclick="addToCart({id:'NC071',image:'img/8715834439_1514371716_copy_large.jpg', price:245000, name:'Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ nhỏ màu nâu tanin'})">Thêm
+                            ng-click="addToCart({id:x1.maSanPham,image:x1.hinhDaiDien, price:x1.donGia, name:x1.tenSanPham})">Thêm
                                 vào giỏ</button>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-2 col-s-4 box">
+                <!--<div class="col-2 col-s-4 box">
                     <div class="box-content">
 
                         <div class="box-img">
                             <div class="box-giamgia">-27%</div>
-                            <img class="anh1"
-                                src="img/non_coi_di_bien_nc018_large.webp">
+                            <img class="anh1" src="img/non_coi_di_bien_nc018_large.webp">
                             <img class="anh2"
                                 src="img/mu_non_di_bien_vintage_018__1__0d0d359e427f48ee9006aaac36e25267_large.jpg">
 
@@ -404,15 +408,13 @@
                     </div>
 
                 </div>
-                <div class="col-2 col-s-4 box">
+                 <div class="col-2 col-s-4 box">
                     <div class="box-content">
 
                         <div class="box-img">
                             <div class="box-giamgia">-27%</div>
-                            <img class="anh1"
-                                src="img/non_coi_thoi_trang_nc055__8__large.webp">
-                            <img class="anh2"
-                                src="img/non_coi_thoi_trang_nc055__14__large.jpg">
+                            <img class="anh1" src="img/non_coi_thoi_trang_nc055__8__large.webp">
+                            <img class="anh2" src="img/non_coi_thoi_trang_nc055__14__large.jpg">
 
                         </div>
 
@@ -437,10 +439,8 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-27%</div>
-                            <img class="anh1"
-                                src="img/8600907693_32571327_large.jpg">
-                            <img class="anh2"
-                                src="img/8600979400_32571327_large.jpg">
+                            <img class="anh1" src="img/8600907693_32571327_large.jpg">
+                            <img class="anh2" src="img/8600979400_32571327_large.jpg">
 
                         </div>
 
@@ -465,10 +465,8 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-26%</div>
-                            <img class="anh1"
-                                src="img/nc062_c392c2ca131e49deaff84c587b0b80c6_large.jpg">
-                            <img class="anh2"
-                                src="img/non_coi_thoi_trang_nc062__1__large.jpg">
+                            <img class="anh1" src="img/nc062_c392c2ca131e49deaff84c587b0b80c6_large.jpg">
+                            <img class="anh2" src="img/non_coi_thoi_trang_nc062__1__large.jpg">
 
                         </div>
 
@@ -577,10 +575,8 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
-                            <img class="anh1"
-                                src="img/nc174_13815408d8104520962a6706a6db02e6_large.jpg">
-                            <img class="anh2"
-                                src="img/nc173_174_b2e25cc09c1e48d5b547c67e2c7ff58b_large.jpg">
+                            <img class="anh1" src="img/nc174_13815408d8104520962a6706a6db02e6_large.jpg">
+                            <img class="anh2" src="img/nc173_174_b2e25cc09c1e48d5b547c67e2c7ff58b_large.jpg">
 
                         </div>
 
@@ -605,10 +601,8 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
-                            <img class="anh1"
-                                src="img/mu_noi_beret_2__3__34e9be9865ed4b39a873ab8ab8ad7532_large.jpg">
-                            <img class="anh2"
-                                src="img/mu_noi_beret_2__2__b3bb1bdeae6d4d2ca96fc09e1e1d0a4d_large.webp">
+                            <img class="anh1" src="img/mu_noi_beret_2__3__34e9be9865ed4b39a873ab8ab8ad7532_large.jpg">
+                            <img class="anh2" src="img/mu_noi_beret_2__2__b3bb1bdeae6d4d2ca96fc09e1e1d0a4d_large.webp">
 
                         </div>
 
@@ -627,7 +621,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -648,21 +642,42 @@
     <div style="width: 85%;margin-left: 12%;margin-right: 5%;">
         <div class="panel">
             <div class="row">
-
-                <div class="col-2 col-s-4 box">
+                <div class="col-2 col-s-4 box" ng-repeat="x in listSanPhamKhan">
                     <div class="box-content">
 
                         <div class="box-img">
-                            <div class="box-giamgia">-27%</div>
                             <img class="anh1"
-                                src="img/khan-choang-co-kc071-_6_-recovered_large.webp">
-                            <img class="anh2"
-                                src="img/kc071__48__ecc073bed712476c85056710557e834d_large.webp">
+                                src="{{x.hinhDaiDien}}">
+                            <img class="anh2" src="{{x.hinhAnDi}}">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp màu đỏ hoa tiết - Mã KC071</div>
+                            <div class="box-name">{{x.tenSanPham}}</div>
+                            <div style="color:purple; font-size: 12px;">
+                                <span>{{x.donGia}} đ</span>
+
+                            </div>
+                            <button
+                            ng-click="addToCart({id:x.maSanPham,image:x.hinhDaiDien, price:x.donGia, name:x.tenSanPham})">Thêm
+                                vào giỏ</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="col-2 col-s-4 box">
+                    <div class="box-content">
+
+                        <div class="box-img">
+                            <div class="box-giamgia">-27%</div>
+                            <img class="anh1" src="img/khan-choang-co-kc071-_6_-recovered_large.webp">
+                            <img class="anh2" src="img/kc071__48__ecc073bed712476c85056710557e834d_large.webp">
+
+                        </div>
+
+                        <div class="box-detail">
+                            <div class="box-name">Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp màu đỏ hoa
+                                tiết - Mã KC071</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -683,13 +698,13 @@
                             <div class="box-giamgia">-27%</div>
                             <img class="anh1"
                                 src="img/khan_choang_co_kc075__2__-_copy_f36acd6bf08c4ad89be0867bf5b8d665_large.webp">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc075__6__large.jpg">
+                            <img class="anh2" src="img/khan_choang_co_kc075__6__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu nâu Tây trơn cao cấp đẹp sang trọng - Mã KC075</div>
+                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu nâu Tây trơn cao cấp đẹp
+                                sang trọng - Mã KC075</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -710,13 +725,13 @@
                             <div class="box-giamgia">-27%</div>
                             <img class="anh1"
                                 src="img/kc079__0__9254d026b7d54c39ae2ac9360c557525_grande_3578ab31c5c641e5a99086acfeb69f4e_large.webp">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc079__1__large.jpg">
+                            <img class="anh2" src="img/khan_choang_co_kc079__1__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu vàng nghệ cao cấp đẹp sang trọng - Mã KC079</div>
+                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu vàng nghệ cao cấp đẹp
+                                sang trọng - Mã KC079</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -735,15 +750,14 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-27%</div>
-                            <img class="anh1"
-                                src="img/khan_choang_co_lua_ks021__9__large.jpg">
-                            <img class="anh2"
-                                src="img/khan_choang_co_lua_ks021__4__large.jpg">
+                            <img class="anh1" src="img/khan_choang_co_lua_ks021__9__large.jpg">
+                            <img class="anh2" src="img/khan_choang_co_lua_ks021__4__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ lụa cao cấp cho nữ văn phòng sở đẹp lụa hoa sen trắng xanh - Mã KS021</div>
+                            <div class="box-name">Khăn quàng choàng cổ lụa cao cấp cho nữ văn phòng sở đẹp lụa hoa sen
+                                trắng xanh - Mã KS021</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -762,15 +776,14 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-26%</div>
-                            <img class="anh1"
-                                src="img/khan_choang_co_kc032_1__large.webp">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc032_2__large.webp">
+                            <img class="anh1" src="img/khan_choang_co_kc032_1__large.webp">
+                            <img class="anh2" src="img/khan_choang_co_kc032_2__large.webp">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp họa tiết caro màu xanh dương - Mã KC032</div>
+                            <div class="box-name">Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp họa tiết caro
+                                màu xanh dương - Mã KC032</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>175,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">235,000
@@ -797,7 +810,8 @@
 
                         <div class="box-detail">
                             <div class="box-name">
-                                Khăn quàng choàng cổ len cashmere giữ ấm màu đỏ đô trơn cao cấp đẹp sang trọng - Mã KC076</div>
+                                Khăn quàng choàng cổ len cashmere giữ ấm màu đỏ đô trơn cao cấp đẹp sang trọng - Mã
+                                KC076</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -816,15 +830,15 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
-                            <img class="anh1"
-                                src="img/khan_choang_co_kc042_large.webp">
+                            <img class="anh1" src="img/khan_choang_co_kc042_large.webp">
                             <img class="anh2" src="img/anhkhan2.png">
 
                         </div>
 
                         <div class="box-detail">
                             <div class="box-name">
-                                Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp họa tiết màu đỏ xanh dương - Mã KC042</div>
+                                Khăn quàng choàng cổ nữ đi biển Boho thổ cẩm đẹp cao cấp họa tiết màu đỏ xanh dương - Mã
+                                KC042</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -843,15 +857,14 @@
 
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
-                            <img class="anh1"
-                                src="img/kc081__0__bb6d764331b44c7993114d64400531bf_large.webp">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc081__4__large.jpg">
+                            <img class="anh1" src="img/kc081__0__bb6d764331b44c7993114d64400531bf_large.webp">
+                            <img class="anh2" src="img/khan_choang_co_kc081__4__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu xám trơn cao cấp đẹp sang trọng - Mã KC081</div>
+                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu xám trơn cao cấp đẹp sang
+                                trọng - Mã KC081</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -871,13 +884,13 @@
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
                             <img class="anh1" src="img/anhkan3.png">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc082__2__large.jpg">
+                            <img class="anh2" src="img/khan_choang_co_kc082__2__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu đỏ trơn cao cấp đẹp sang trọng - Mã KC082</div>
+                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu đỏ trơn cao cấp đẹp sang
+                                trọng - Mã KC082</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -897,13 +910,13 @@
                         <div class="box-img">
                             <div class="box-giamgia">-29%</div>
                             <img class="anh1" src="img/anhkhan4.png">
-                            <img class="anh2"
-                                src="img/khan_choang_co_kc094__8__large.jpg">
+                            <img class="anh2" src="img/khan_choang_co_kc094__8__large.jpg">
 
                         </div>
 
                         <div class="box-detail">
-                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu hồng nhạt trơn cao cấp đẹp sang trọng - Mã KC094</div>
+                            <div class="box-name">Khăn quàng choàng cổ len cashmere giữ ấm màu hồng nhạt trơn cao cấp
+                                đẹp sang trọng - Mã KC094</div>
                             <div style="color:purple; font-size: 12px;">
                                 <span>245,000 đ</span>
                                 <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
@@ -917,7 +930,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
 
             </div>
 
@@ -1078,23 +1091,22 @@
                             </a>
                         </li>
                         <li style="margin-right: 15px;">
-                            <a style="color: white;" target="_blank"
-                                href="https://www.instagram.com/khanphukien/">
+                            <a style="color: white;" target="_blank" href="https://www.instagram.com/khanphukien/">
                                 <i class="fa-brands fa-instagram" style="font-size: 30px;"></i></a>
                         </li>
 
 
                         <li style="margin-right: 15px;width: 30%;">
                             <a style="color: white;" target="_blank"
-                                href="https://www.youtube.com/channel/UCJquPQtn2dqiZ33IzGIP_zA"><i class="fa-brands fa-youtube" style="font-size: 30px;"></i></a>
+                                href="https://www.youtube.com/channel/UCJquPQtn2dqiZ33IzGIP_zA"><i
+                                    class="fa-brands fa-youtube" style="font-size: 30px;"></i></a>
                         </li>
 
                     </ul>
 
                     <div>
-                        <a  href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=38057" target="_blank">
-                            <img src="img/dkbocongthuong.png?v=18"
-                                alt="Bộ công thương">
+                        <a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=38057" target="_blank">
+                            <img src="img/dkbocongthuong.png?v=18" alt="Bộ công thương">
                         </a>
                     </div>
 
@@ -1105,7 +1117,7 @@
             <p style="text-align: center;padding-bottom: 5px;">Một sản phẩm của Hila Việt Nam</p>
         </div>
     </footer>
-    <script>countCart();</script>
+    <!-- <script>countCart();</script> -->
 </body>
 
 </html>

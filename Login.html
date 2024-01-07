@@ -15,9 +15,13 @@
     </title>
     <link rel="shortcut icon" href="http://theme.hstatic.net/1000111569/1001042649/14/favicon.png?v=18"
         type="image/png">
+        <script src="js/angular/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/angular/global.js"></script>
+    <script src="js/angular/login.js"></script>
 </head>
 
-<body>
+<body ng-app="AppBanHang" ng-controller="LoginCtrl">
     <!-- MENU MAIN -->
 
     <div class="container" style="margin-top: 0px;position: relative;">
@@ -74,8 +78,8 @@
         </div>
         <div class="menu-r">
             <a href="/GioHang.html"><i class="fa-solid fa-cart-shopping"><span id="cart-count">0</span></i></a>
-            <a href="/Login.html"><i class="fa-solid fa-user"  style="margin-right: 1%;"></i></a>
-            
+            <a href="/Login.html"><i class="fa-solid fa-user" style="margin-right: 1%;"></i></a>
+
         </div>
         <nav>
 
@@ -89,7 +93,7 @@
                         <li>
                             <a href="#" title="Tất cả bông tai"> Tất cả bông tai <i class="fa-solid fa-angle-right"
                                     style="margin-left:60%;margin-top: 10px;"></i>
-    
+
                             </a>
                             <!-- menu con sổ ngang cấp 3 -->
                             <ul>
@@ -101,16 +105,18 @@
                         <li><a href="#" title="Lắc tay - Vòng đeo tay">Lắc tay - Vòng đeo tay <i
                                     class="fa-solid fa-angle-right" style="float: right;margin-top: 10px;"></i></a>
                             <ul>
-                                <li><a href="#" title="Lắc Tay Nữ - Vòng đeo tay bạc">Lắc Tay Nữ - Vòng đeo tay bạc</a></li>
+                                <li><a href="#" title="Lắc Tay Nữ - Vòng đeo tay bạc">Lắc Tay Nữ - Vòng đeo tay bạc</a>
+                                </li>
                                 <li><a href="#" title="Vòng tay Boho Vitage">Vòng tay Boho Vitage</a></li>
                             </ul>
                         </li>
                         <li><a href="#" title="Cài Áo cao cấp - Hòa cài áo">Cài Áo cao cấp - Hòa cài áo</a></li>
-                        <li><a href="#" title="Dây nịt - Thắt lưng nữ - Đai váy">Dây nịt - Thắt lưng nữ - Đai váy</a></li>
+                        <li><a href="#" title="Dây nịt - Thắt lưng nữ - Đai váy">Dây nịt - Thắt lưng nữ - Đai váy</a>
+                        </li>
                         <li><a href="#" title="Hộp bảo quản trang sức">Hộp bảo quản trang sức</a></li>
                         <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
                         <li><a href="#" title="Mắt kính - Kính mát">Mắt kính - Kính mát</a></li>
-    
+
                     </ul>
                 </li>
                 <li><a href="#" title="Mũ & nón">
@@ -190,20 +196,23 @@
                         <li><a href="#" title="Kẹp tóc">Kẹp tóc
                                 <i class="fa-solid fa-angle-right" style="float: right;margin-top: 20px;"></i>
                             </a>
-    
+
                             <ul>
                                 <li><a href="#" title="Kẹp tóc đính đá">Kẹp tóc đính đá</a></li>
                                 <li><a href="#" title="Kẹp tóc càng cua">Kẹp tóc càng cua</a></li>
                                 <li><a href="#" title="Kẹp tóc ngọc trai">Kẹp tóc ngọc trai</a></li>
-                                <li><a href="#" title="Kẹp tóc trung niên, cho mẹ, cho bà">Kẹp tóc trung niên, cho mẹ, cho
+                                <li><a href="#" title="Kẹp tóc trung niên, cho mẹ, cho bà">Kẹp tóc trung niên, cho mẹ,
+                                        cho
                                         bà</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" title="Mấn áo dài, Mấn đội đầu cách tân">Mấn áo dài, Mấn đội đầu cách tân</a></li>
+                        <li><a href="#" title="Mấn áo dài, Mấn đội đầu cách tân">Mấn áo dài, Mấn đội đầu cách tân</a>
+                        </li>
                         <li><a href="#" title="Cột tóc">Cột tóc</a></li>
                         <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
                         <li><a href="#" title="Cài che tóc bạc / Che hói">Cài che tóc bạc / Che hói</a></li>
-                        <li><a href="#" title="Kẹp tóc cho người trung niên / lớn tuồi (Bà, Mẹ,...)">Kẹp tóc cho người trung
+                        <li><a href="#" title="Kẹp tóc cho người trung niên / lớn tuồi (Bà, Mẹ,...)">Kẹp tóc cho người
+                                trung
                                 niên / lớn tuồi (Bà, Mẹ,...)</a></li>
                     </ul>
                 </li>
@@ -239,12 +248,12 @@
                         Phụ kiện
                     </a>
                     <ul>
-                            <li><a href="#" title="Phụ kiện cho bé">Phụ kiện cho bé</a></li>
-                            <li><a href="#" title="Cài áo cao cấp">Cài áo cao cấp</a></li>
-                            <li><a href="#" title="Vòng tay Boho">Vòng tay Boho</a></li>
-                            <li><a href="#" title="Dây Nịt - Thắt lưng - Đai váy">Dây Nịt - Thắt lưng - Đai váy</a></li>
-                            <li><a href="#" title="Kính Mát Nữ"> Kính Mát Nữ</a></li>
-                            <li><a href="#" title="Tất Nữ - Vớ đẹp"> Tất nữ - vớ đẹp</a></li>
+                        <li><a href="#" title="Phụ kiện cho bé">Phụ kiện cho bé</a></li>
+                        <li><a href="#" title="Cài áo cao cấp">Cài áo cao cấp</a></li>
+                        <li><a href="#" title="Vòng tay Boho">Vòng tay Boho</a></li>
+                        <li><a href="#" title="Dây Nịt - Thắt lưng - Đai váy">Dây Nịt - Thắt lưng - Đai váy</a></li>
+                        <li><a href="#" title="Kính Mát Nữ"> Kính Mát Nữ</a></li>
+                        <li><a href="#" title="Tất Nữ - Vớ đẹp"> Tất nữ - vớ đẹp</a></li>
                     </ul>
                 </li>
                 <li>
@@ -256,44 +265,44 @@
                     <ul>
                         <li><a href="#" title="Hướng dẫn">Hướng dẫn</a></li>
                         <li><a href="#" title="Tin thời trang">Tin thời trang</a></li>
-                        <li><a href="#" title="Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp">Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp</a></li>
-                        <li><a href="#" title="Top 10 Khăn Quàng cổ Len - Khăn Choàng Cổ Nữ đẹp">Top 10 Khăn Quàng cổ...</a></li>
+                        <li><a href="#" title="Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp">Top 10 Dây chuyền bạc - Vòng cổ
+                                nữ đẹp</a></li>
+                        <li><a href="#" title="Top 10 Khăn Quàng cổ Len - Khăn Choàng Cổ Nữ đẹp">Top 10 Khăn Quàng
+                                cổ...</a></li>
                     </ul>
                 </li>
-    
-    
+
+
             </ul>
         </nav>
     </div>
-    
+
     <div id="div-login">
         <div id="form-login">
-            <form action="/TrangChu.html" class="phodom">
 
-                <div class="gd-login">
-                    <h2 style="color: orange;">Đăng nhập</h2>
-                    <label for="Email">Tên tài khoản hoặc địa chỉ Email <span style="color: red;">*</span></label>
-                    <br>
-                    <input type="text" name="Email" id="tk">
-                    <br>
-                    <label for="psw">Mật khẩu <span style="color: red;">*</span></label>
-                    <br>
-                    <input type="password" name="psw">
-                    <br>
-                    <div style="display: flex; margin-top: -30px;">
-                        <input type="checkbox" name="" id="" style="width: 5%;"> <label for="psw">Ghi nhớ mật khẩu</label>
-                        <a href="#" style="text-decoration: none; margin-left: -160px;">Quên mật khẩu?</a>
-                    </div>
-                    <br>
-                    <button type="submit" onclick="Login()">Đăng nhập</button>
-                    <br>
-                    
-
-
+            <div class="gd-login">
+                <h2 style="color: orange;">Đăng nhập</h2>
+                <label for="Email">Tên tài khoản <span style="color: red;">*</span></label>
+                <br>
+                <input type="text" name="Email" id="tk">
+                <br>
+                <label for="psw">Mật khẩu <span style="color: red;">*</span></label>
+                <br>
+                <input type="password" name="psw" id="mk">
+                <br>
+                <div style="display: flex; margin-top: -30px;">
+                    <input type="checkbox" name="" id="loginwithAcc" style="width: 5%;"> <label for="psw">Admin</label>
                 </div>
-            </form>
+                <br>
+                <button type="submit" onclick="Login123()">Đăng nhập</button>
+                <br>
+
+
+
+            </div>
+
         </div>
-        
+
     </div>
 </body>
 

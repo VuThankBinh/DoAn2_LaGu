@@ -15,9 +15,13 @@
     </title>
     <link rel="shortcut icon" href="http://theme.hstatic.net/1000111569/1001042649/14/favicon.png?v=18"
         type="image/png">
+        <script src="js/angular/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="js/angular/global.js"></script>
+    <script src="js/angular/chitiet.js"></script>
 </head>
 
-<body>
+<body ng-app="AppBanHang" ng-controller="ChiTietCtrl">
     <!-- MENU MAIN -->
 
     <div class="container" style="margin-top: 0px;position: relative;">
@@ -78,20 +82,27 @@
 
         </div>
         <nav>
-
             <ul>
+                <li ng-repeat="x in listDanhMuc"> 
+                    <a href="#" title="{{x.tenLoai}}">
+                    <img ng-src="{{current_img + x.hinhAnhMinhHoa}}" alt="">
+                    {{x.tenLoai}}
+                    </a>
+
+                </li>
+            </ul>
+            <!-- <ul>
                 <li>
                     <a href="#" title="Trang sức">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_1.png?v=18" alt="">
+                        <img src="img/icon_menu_1.png?v=18" alt="">
                         <br>Trang sức
                     </a>
                     <ul>
                         <li>
                             <a href="#" title="Tất cả bông tai"> Tất cả bông tai <i class="fa-solid fa-angle-right"
                                     style="margin-left:60%;margin-top: 10px;"></i>
-
+    
                             </a>
-                            <!-- menu con sổ ngang cấp 3 -->
                             <ul>
                                 <li><a href="#" title="Bông tai bạc cao cấp">Bông tai bạc cao cấp</a></li>
                                 <li><a href="#" title="Bông tai Boho Vitage">Bông tai Boho Vitage</a></li>
@@ -101,22 +112,20 @@
                         <li><a href="#" title="Lắc tay - Vòng đeo tay">Lắc tay - Vòng đeo tay <i
                                     class="fa-solid fa-angle-right" style="float: right;margin-top: 10px;"></i></a>
                             <ul>
-                                <li><a href="#" title="Lắc Tay Nữ - Vòng đeo tay bạc">Lắc Tay Nữ - Vòng đeo tay bạc</a>
-                                </li>
+                                <li><a href="#" title="Lắc Tay Nữ - Vòng đeo tay bạc">Lắc Tay Nữ - Vòng đeo tay bạc</a></li>
                                 <li><a href="#" title="Vòng tay Boho Vitage">Vòng tay Boho Vitage</a></li>
                             </ul>
                         </li>
                         <li><a href="#" title="Cài Áo cao cấp - Hòa cài áo">Cài Áo cao cấp - Hòa cài áo</a></li>
-                        <li><a href="#" title="Dây nịt - Thắt lưng nữ - Đai váy">Dây nịt - Thắt lưng nữ - Đai váy</a>
-                        </li>
+                        <li><a href="#" title="Dây nịt - Thắt lưng nữ - Đai váy">Dây nịt - Thắt lưng nữ - Đai váy</a></li>
                         <li><a href="#" title="Hộp bảo quản trang sức">Hộp bảo quản trang sức</a></li>
                         <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
                         <li><a href="#" title="Mắt kính - Kính mát">Mắt kính - Kính mát</a></li>
-
+    
                     </ul>
                 </li>
                 <li><a href="#" title="Mũ & nón">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_2.png?v=18" alt="">
+                        <img src="img/icon_menu_2.png?v=18" alt="">
                         <br>Mũ & nón</a>
                     <ul>
                         <li><a href="#" title="Mũ Nón Cao Cấp">Mũ Nón Cao Cấp</a></li>
@@ -140,10 +149,9 @@
                 </li>
                 <li>
                     <a href="#" title="Khăn choàng"><img
-                            src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_3.png?v=18" alt="">
+                            src="img/icon_menu_3.png?v=18" alt="">
                         <br>Khăn choàng
                     </a>
-                    <!-- menu con sổ xuống cấp 1 -->
                     <ul>
                         <li><a href="#" title="Khăn choàng bán chạy">Khăn choàng bán chạy</a></li>
                         <li><a href="#" title="Khăn choàng Lụa/Silk">Khăn choàng Lụa/Silk</a></li>
@@ -157,7 +165,7 @@
                 </li>
                 <li>
                     <a href="#" title="Khăn vuông">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_4.png?v=18" alt="">
+                        <img src="img/icon_menu_4.png?v=18" alt="">
                         <br>
                         Khăn vuông</a>
                     <ul>
@@ -173,7 +181,7 @@
                 </li>
                 <li>
                     <a href="#" title="Phụ kiện tóc"><img
-                            src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_5.png?v=18" alt="">
+                            src="img/icon_menu_5.png?v=18" alt="">
                         <br>
                         Phụ kiện tóc
                     </a>
@@ -192,29 +200,26 @@
                         <li><a href="#" title="Kẹp tóc">Kẹp tóc
                                 <i class="fa-solid fa-angle-right" style="float: right;margin-top: 20px;"></i>
                             </a>
-
+    
                             <ul>
                                 <li><a href="#" title="Kẹp tóc đính đá">Kẹp tóc đính đá</a></li>
                                 <li><a href="#" title="Kẹp tóc càng cua">Kẹp tóc càng cua</a></li>
                                 <li><a href="#" title="Kẹp tóc ngọc trai">Kẹp tóc ngọc trai</a></li>
-                                <li><a href="#" title="Kẹp tóc trung niên, cho mẹ, cho bà">Kẹp tóc trung niên, cho mẹ,
-                                        cho
+                                <li><a href="#" title="Kẹp tóc trung niên, cho mẹ, cho bà">Kẹp tóc trung niên, cho mẹ, cho
                                         bà</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" title="Mấn áo dài, Mấn đội đầu cách tân">Mấn áo dài, Mấn đội đầu cách tân</a>
-                        </li>
+                        <li><a href="#" title="Mấn áo dài, Mấn đội đầu cách tân">Mấn áo dài, Mấn đội đầu cách tân</a></li>
                         <li><a href="#" title="Cột tóc">Cột tóc</a></li>
                         <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
                         <li><a href="#" title="Cài che tóc bạc / Che hói">Cài che tóc bạc / Che hói</a></li>
-                        <li><a href="#" title="Kẹp tóc cho người trung niên / lớn tuồi (Bà, Mẹ,...)">Kẹp tóc cho người
-                                trung
+                        <li><a href="#" title="Kẹp tóc cho người trung niên / lớn tuồi (Bà, Mẹ,...)">Kẹp tóc cho người trung
                                 niên / lớn tuồi (Bà, Mẹ,...)</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" title="Túi xách & ví">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_7.png?v=18" alt="">
+                        <img src="img/icon_menu_7.png?v=18" alt="">
                         <br>
                         Túi xách & ví
                     </a>
@@ -227,7 +232,7 @@
                 </li>
                 <li>
                     <a href="#" title="BST Vintage">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_8.png?v=18" alt="">
+                        <img src="img/icon_menu_8.png?v=18" alt="">
                         <br>
                         BTS Vintage
                     </a>
@@ -239,79 +244,76 @@
                 </li>
                 <li>
                     <a href="#" title="Phụ kiện">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_9.png?v=18" alt="">
+                        <img src="img/icon_menu_9.png?v=18" alt="">
                         <br>
                         Phụ kiện
                     </a>
                     <ul>
-                        <li><a href="#" title="Phụ kiện cho bé">Phụ kiện cho bé</a></li>
-                        <li><a href="#" title="Cài áo cao cấp">Cài áo cao cấp</a></li>
-                        <li><a href="#" title="Vòng tay Boho">Vòng tay Boho</a></li>
-                        <li><a href="#" title="Dây Nịt - Thắt lưng - Đai váy">Dây Nịt - Thắt lưng - Đai váy</a></li>
-                        <li><a href="#" title="Kính Mát Nữ"> Kính Mát Nữ</a></li>
-                        <li><a href="#" title="Tất Nữ - Vớ đẹp"> Tất nữ - vớ đẹp</a></li>
+                            <li><a href="#" title="Phụ kiện cho bé">Phụ kiện cho bé</a></li>
+                            <li><a href="#" title="Cài áo cao cấp">Cài áo cao cấp</a></li>
+                            <li><a href="#" title="Vòng tay Boho">Vòng tay Boho</a></li>
+                            <li><a href="#" title="Dây Nịt - Thắt lưng - Đai váy">Dây Nịt - Thắt lưng - Đai váy</a></li>
+                            <li><a href="#" title="Kính Mát Nữ"> Kính Mát Nữ</a></li>
+                            <li><a href="#" title="Tất Nữ - Vớ đẹp"> Tất nữ - vớ đẹp</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" title="Hướng dẫn">
-                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/icon_menu_10.png?v=18" alt="">
+                        <img src="img/icon_menu_10.png?v=18" alt="">
                         <br>
                         Hướng dẫn
                     </a>
                     <ul>
                         <li><a href="#" title="Hướng dẫn">Hướng dẫn</a></li>
                         <li><a href="#" title="Tin thời trang">Tin thời trang</a></li>
-                        <li><a href="#" title="Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp">Top 10 Dây chuyền bạc - Vòng cổ
-                                nữ đẹp</a></li>
-                        <li><a href="#" title="Top 10 Khăn Quàng cổ Len - Khăn Choàng Cổ Nữ đẹp">Top 10 Khăn Quàng
-                                cổ...</a></li>
+                        <li><a href="#" title="Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp">Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp</a></li>
+                        <li><a href="#" title="Top 10 Khăn Quàng cổ Len - Khăn Choàng Cổ Nữ đẹp">Top 10 Khăn Quàng cổ...</a></li>
                     </ul>
                 </li>
-
-
-            </ul>
+    
+    
+            </ul> -->
         </nav>
     </div>
     <div class="link-sp">
         <ul>
             <li><a href="/" itemprop="url" target="_self">Trang chủ</a></li>
             <li style="margin-right: 5px;"><i class="fa fa-angle-right"></i></li>
-            <li class="active"><span itemprop="title">Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ nhỏ màu nâu
-                    tanin - Mã NC071</span></li>
+            <li class="active"><span itemprop="title">{{SanPham.tenSanPham}}</span></li>
 
         </ul>
     </div>
 
     <div class="CTSP">
         <div style="width:46%;">
-            <img src="https://product.hstatic.net/1000111569/product/mu_non_di_bien_vintage_071__6__302a08a292054bc4b7e3769d5012e891_1024x1024.jpg"
+            <img src="http://localhost:2487/{{SanPham.hinhDaiDien}}"
                 alt="">
         </div>
         <div class="in4">
             <p>
-                MŨ NÓN CÓI ĐI BIỂN RỘNG VÀNH TRÒN ĐẸP CHO NỮ PHỐI NƠ NHỎ MÀU NÂU TANIN - MÃ NC071
+                {{SanPham.tenSanPham}}
             </p>
             <br>
-            <p style="font-size: 13px;color: grey;">Mã sản phẩm: NC071</p>
+            <p style="font-size: 13px;color: grey;">Mã sản phẩm: {{SanPham.maSanPham}}</p>
 
             <div class="gia">
-                <span>245,000 đ</span>
-                <span style="text-decoration:line-through;color: grey; margin-left: 5%;">335,000 đ</span>
+                <span>{{SanPham.donGia}} đ</span>
 
             </div>
             <div class="soluong">
                 <label>Số lượng:</label>
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <button value="" onclick="minusQuantity()">-</button>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                    <input type="text" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
                     <button onclick="plusQuantity()">+</button>
-                </div>
+                </div> -->
             </div>
             <div>
-                <button class="addgiohang">
+                <button class="addgiohang" ng-click="addToCart({id: SanPham.maSanPham, image: 'http://localhost:2487/' + SanPham.hinhDaiDien, price: SanPham.donGia, name: SanPham.tenSanPham})">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Thêm vào giỏ</span>
                 </button>
+                
                 <button style="display: none;">
                     <span class="icon_cart_btn"></span>
                     <span>Mua ngay</span>
@@ -462,7 +464,7 @@
                 </a>
             </div>
             <h2>
-                Mô tả Mũ nón cói đi biển rộng vành tròn đẹp cho nữ phối nơ nhỏ màu nâu tanin - Mã NC071
+                {{SanPham.tenSanPham}}
             </h2>
             <ul>
                 <li>Size: free</li>
@@ -471,13 +473,10 @@
                 <li>Màu: Nâu Tani</li>
             </ul>
             <div class="anh_mota">
-                <img src="https://product.hstatic.net/1000111569/product/8715834439_1514371716_copy_large.jpg" alt="">
+                <img src="http://localhost:2487/{{SanPham.hinhDaiDien}}" alt="">
             </div>
             <div class="anh_mota">
-                <img src="https://product.hstatic.net/1000111569/product/8751014882_1514371716_copy_large.jpg" alt="">
-            </div>
-            <div class="anh_mota">
-                <img src="https://product.hstatic.net/1000111569/product/8735155223_1514371716_large.jpg" alt="">
+                <img src="http://localhost:2487/{{SanPham.hinhAnDi}}" alt="">
             </div>
             <strong>Mô tả sản phẩm mũ nón đi biển sợi cói tự nhiên</strong>
             <ul class="MoTa_chitiet">
@@ -536,158 +535,23 @@
                 Sản phẩm liên quan
             </div>
             <div class="camket">
-                <div style="display: flex;">
+                <div style="display: flex;" ng-repeat="x in SanPham.listSP_tt">
                     <div style="width: 60%;">
                         <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_di_bien_rong_vanh_nc508__11__9488c825380a40ebb60d695f5576e6aa_1024x1024.jpg">
+                            src="http://localhost:2487/{{x.hinhDaiDien}}">
                     </div>
                     <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
+                        <p>{{x.tenSanPham}}</p>
                         <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
+                            <span>{{SanPham.donGia}} đ</span>
+                            
 
                         </div>
                     </div>
                 </div>
 
 
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_di_bien_rong_vanh_nc508__8__1a2e11d8823f4e289f18c387050c55fd_1024x1024.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 15px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc507__1__3f72a18226814ac19d4f4306d5ba62b6_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón visor nửa đầu đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc506__2__fcaf1def4b24413ebea068364a7e67d7_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                     </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc505__2__38dcc2c809d246959f1015a3b842db3a_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc504__1__dec1ddac0f704e7495ccb659f40c7a9a_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc503__2__9c08565d622d434495445828e77f99e7_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc503__2__9c08565d622d434495445828e77f99e7_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img
-                            src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc501__6__0dcde2492eab481499ba40f31dfd9f46_compact.jpg">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
-                <div style="display: flex;">
-                    <div style="width: 60%;">
-                        <img src="https://product.hstatic.net/1000111569/product/mu_non_coi_di_bien_rong_vanh_nc499__3__0ccbfe842231426095b0f53ea461a96c_compact.jpg" alt="">
-                    </div>
-                    <div>
-                        <p>Mũ nón cói đi biển rộng vành tròn đẹp cho nữ LÀGU Khăn Phụ Kiện ...</p>
-                        <div style="color:purple; font-size: 12px;margin-left: 25px;">
-                            <span>245,000 đ</span>
-                            <span style="text-decoration:line-through;color: grey; margin-left: 17%;">335,000
-                                đ</span>
-
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

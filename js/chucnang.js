@@ -22,35 +22,45 @@ function showR() {
     else index = index + 1;
     list[index].style.display = 'block';
 }
-
+function dathang() {
+    window.location.href = "thanhtoan.html"
+}
 function addToCart(item) {
 
-    //debugger;          
-    item.quantity = 1;
-    console.log(item.quantity);
-    var list;
-    if (localStorage.getItem('cart') == null) {
-        list = [item];
-    } else {
-        list = JSON.parse(localStorage.getItem('cart')) || [];
-        let ok = true;
-        for (let x of list) {
-            if (x.id == item.id) {
-                x.quantity += 1;
-                ok = false;
-                break;
+    var user = JSON.parse(localStorage.getItem('user'))
+    if (user != null) {
+        //debugger;          
+        item.quantity = 1;
+        console.log(item.quantity);
+        var list;
+        if (localStorage.getItem('cart') == null) {
+            list = [item];
+        } else {
+            list = JSON.parse(localStorage.getItem('cart')) || [];
+            let ok = true;
+            for (let x of list) {
+                if (x.id == item.id) {
+                    x.quantity += 1;
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                list.push(item);
             }
         }
-        if (ok) {
-            list.push(item);
-        }
+        localStorage.setItem('cart', JSON.stringify(list));
+        alert("Đã thêm vào giỏ hàng thành công");
+        countCart();
     }
-    localStorage.setItem('cart', JSON.stringify(list));
-    alert("Đã thêm vào giỏ hàng thành công");
-    countCart();
+    else{
+        alert('Bạn phải đăng nhập trước khi mua hàng')
+        window.location.href="Login.html"
+    }
+
 }
 
-function Login() { 
+function Login() {
     var ten = getData();
     var link = document.getElementById("user");
     link.textContent = "ten";
@@ -67,17 +77,17 @@ function getData() {
 
     return data;
 }
-function countCart(){
-    
+function countCart() {
+
     var cart = JSON.parse(localStorage.getItem("cart"));
-    var count=0;
-    if(cart.length != 0 && cart!=null){
-        for(let index = 0; index < cart.length; index++){
-            count+=cart[index].quantity;
+    var count = 0;
+    if (cart.length != 0 && cart != null) {
+        for (let index = 0; index < cart.length; index++) {
+            count += cart[index].quantity;
         }
-        document.getElementById('cart-count').textContent=count;
+        document.getElementById('cart-count').textContent = count;
     }
-   
+
 }
 
 function getCart() {
@@ -85,13 +95,13 @@ function getCart() {
     var format = new Intl.NumberFormat({ maximumSignificantDigits: 3 });
     var arrSP = [];
     var sum = 0;
-    var cart =JSON.parse(localStorage.getItem('cart'));
-    var cartcount=0;
-    document.getElementById('GioHang-Info').innerHTML=``
-    if (cart.length == 0 || cart==null) {
+    var cart = JSON.parse(localStorage.getItem('cart'));
+    var cartcount = 0;
+    document.getElementById('GioHang-Info').innerHTML = ``
+    if (cart.length == 0 || cart == null) {
         document.getElementById('GioHang-Header').innerHTML = `Chưa có sản phẩm nào trong giỏ hàng <a href="./TrangChu.html">Quay lại</a>`;
-        document.getElementById('2table').style.display='none'
-        document.getElementById('GioHang-Header').style.marginBottom='400px'
+        document.getElementById('2table').style.display = 'none'
+        document.getElementById('GioHang-Header').style.marginBottom = '400px'
     }
     else {
         for (let index = 0; index < cart.length; index++) {
@@ -99,7 +109,7 @@ function getCart() {
             //  console.log(loginData.cart[index].name);
             // arrSP.push(cart[index])
             sum += parseFloat(cart[index].price * cart[index].quantity)
-            cartcount+=cart[index].quantity;
+            cartcount += cart[index].quantity;
             document.getElementById('GioHang-Info').innerHTML += `<tr>
             <td>
                 <img src="${cart[index].image}" alt="">
@@ -125,7 +135,7 @@ function getCart() {
         </tr>`
 
         }
-        document.getElementById('tongbill').textContent=`Tổng tiền: ${format.format(sum)}₫`;
+        document.getElementById('tongbill').textContent = `Tổng tiền: ${format.format(sum)}₫`;
         console.log(sum)
         document.getElementById('GioHang-Header').innerHTML = `GIỎ HÀNG CỦA BẠN ( có ${cartcount} sản phẩm)`;
     }
@@ -134,58 +144,58 @@ function getCart() {
 function removeFromCartById(id) {
     // Lấy giỏ hàng từ local storage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
+
     // Tìm index của đối tượng có id cần xóa
     const indexToRemove = cart.findIndex(item => item.id === id);
-  
+
     // Nếu tìm thấy, xóa đối tượng khỏi giỏ hàng
     if (indexToRemove !== -1) {
-      cart.splice(indexToRemove, 1);
-  
-      // Cập nhật lại giỏ hàng trong local storage
-      localStorage.setItem('cart', JSON.stringify(cart));
-  
-      alert(`Đã xóa sản phẩm có ID ${id} khỏi giỏ hàng.`);
-      getCart();
+        cart.splice(indexToRemove, 1);
+
+        // Cập nhật lại giỏ hàng trong local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`Đã xóa sản phẩm có ID ${id} khỏi giỏ hàng.`);
+        getCart();
     } else {
-      alert(`Không tìm thấy sản phẩm có ID ${id} trong giỏ hàng.`);
+        alert(`Không tìm thấy sản phẩm có ID ${id} trong giỏ hàng.`);
     }
-  }
-  function truCart(id){
+}
+function truCart(id) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Tìm sản phẩm trong giỏ hàng có ID cần giảm quantity
     const product = cart.find(item => item.id === id);
-  
+
     // Nếu tìm thấy và quantity > 1, giảm giá trị quantity xuống 1
     if (product && product.quantity > 1) {
-      product.quantity -= 1;
-  
-      // Cập nhật lại giỏ hàng trong local storage
-      localStorage.setItem('cart', JSON.stringify(cart));
-  
-      alert(`Cập nhật giỏ hàng thành công`);
-      getCart();
+        product.quantity -= 1;
+
+        // Cập nhật lại giỏ hàng trong local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`Cập nhật giỏ hàng thành công`);
+        getCart();
     } else {
-      alert(`Không thể sửa.`);
+        alert(`Không thể sửa.`);
     }
-  }
-  function congCart(id){
+}
+function congCart(id) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Tìm sản phẩm trong giỏ hàng có ID cần tăng quantity
     const product = cart.find(item => item.id === id);
-  
+
     // Nếu tìm thấy, tăng giá trị quantity lên 1
     if (product) {
-      product.quantity += 1;
-  
-      // Cập nhật lại giỏ hàng trong local storage
-      localStorage.setItem('cart', JSON.stringify(cart));
-  
-     alert(`Cập nhật giỏ hàng thành công`);
-     getCart();
+        product.quantity += 1;
+
+        // Cập nhật lại giỏ hàng trong local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`Cập nhật giỏ hàng thành công`);
+        getCart();
     } else {
-      console.log(`Không tìm thấy sản phẩm có ID ${id} trong giỏ hàng.`);
+        console.log(`Không tìm thấy sản phẩm có ID ${id} trong giỏ hàng.`);
     }
-  }
+}

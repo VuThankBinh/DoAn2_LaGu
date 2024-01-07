@@ -1,0 +1,400 @@
+.title_GH {
+    display: flex;
+    width: 100%;
+    color: red;
+    font-size: 30px;
+    font-weight: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.GioHang-sp {
+    border-collapse: collapse;
+}
+
+.GioHang-sp tr {
+    border-bottom: 1px solid #c0bbbb;
+}
+
+.product-name {
+    color: #201c1c;
+    display: table-cell;
+    font-size: 16px;
+    font-weight: 530;
+    letter-spacing: 0.72px;
+    line-height: 16px;
+    padding: 7.2px 7.2px 7.2px 0px;
+    text-align: left;
+    width: 60px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+}
+
+.btnDel {
+    width: 25px;
+    height: 25px;
+    color: #7e7d7d;
+    border: 1px solid #7e7d7d;
+    /* background-color: #b3afaf; */
+    text-align: center;
+    border-radius: 25px;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: -15px;
+}
+
+.btnDel:hover {
+    border: 2px solid #666;
+    color: black;
+}
+
+.image-sp {
+    max-width: 90px;
+    max-height: 60px;
+    width: 90px;
+}
+
+.image-sp img {
+    margin-left: 15px;
+    height: 80px;
+    width: 80px;
+}
+
+.name-sp {
+    width: 100%;
+}
+
+.name-sp a {
+    color: #666666;
+    display: table-cell;
+    font-size: 14.4px;
+    line-height: 18.72px;
+    padding: 15px 29.2px;
+    text-align: left;
+    width: 100%;
+    /* margin-bottom: -50px; */
+}
+
+.name-sp p {
+    color: #666666;
+    font-size: 14.4px;
+    line-height: 18.72px;
+    /* padding: 15px 29.2px; */
+    padding-left: 38px;
+    /* margin-top: -5px; */
+    text-align: left;
+    width: 100%;
+}
+
+.price-sp p {
+    color: #666666;
+    /* display: table-cell; */
+    font-size: 16px;
+    line-height: 18.72px;
+    padding: 0px 7.2px;
+    text-align: left;
+    margin-top: -15px;
+    margin-left: -30px;
+}
+
+.quantity-sp {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    margin-left: 45px;
+    padding-right: 20px;
+}
+
+.quantity-sp input {
+    width: 30px;
+    padding: 3px;
+    /* border-radius: 5px; */
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ababab;
+}
+
+.quantity-sp button {
+    width: 25px;
+    padding: 5px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid #ababab;
+    font-size: 16px;
+    font-weight: bolder;
+
+}
+
+.quantity-sp button:hover {
+    border: 1px solid #666666;
+    background-color: #c1c1c1;
+}
+
+.subtotal-sp {
+    margin-left: 35px;
+    padding-right: 40px;
+}
+
+.subtotal-sp p {
+    color: #0c0c0c;
+    /* display: table-cell; */
+    font-size: 16px;
+    line-height: 18.72px;
+    padding: 0px 7.2px;
+    text-align: left;
+    margin-top: -15px;
+}
+
+.btn-Edit-back {
+    display: flex;
+}
+
+.btn-Edit-back button {
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#btn-back {
+    background-color: transparent;
+}
+
+#btn-back:hover {
+    background-color: #201c1c;
+    color: white;
+}
+
+#btn-edit {
+    color: white;
+    background-color: #666666;
+}
+
+.ThanhToan-sp {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ThanhToan-sp tr {
+    border-bottom: 1px solid #d5d2d2;
+    /* padding-bottom: 20px !important; */
+    /* padding-top: 20px !important; */
+}
+
+.price-thanhtoan {
+    color: black;
+    font-weight: 600;
+    display: table-cell;
+    font-size: 16px;
+    line-height: 18.72px;
+    padding: 7.2px 0px 7.2px 7.2px;
+    text-align: right;
+    margin-left: 400px;
+    /* float: left; */
+}
+
+.title-thanhtoan {
+    color: #0a0a0a;
+    display: table-cell;
+    font-size: 14.4px;
+    line-height: 18.72px;
+    padding: 7.2px 0px 7.2px 7.2px;
+    text-align: left;
+    /* float: left;  */
+}
+
+#pay {
+    width: 100%;
+    margin-top: 15px;
+    color: white;
+    background-color: rgb(230, 64, 64);
+    padding: 10px 0px 10px 0px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.thanhtoan-select {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.thanhtoan-select a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(53, 53, 208);
+    float: right;
+    cursor: pointer;
+}
+
+.thanhtoan-select p {
+    color: #222222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70%;
+    float: right;
+    line-height: 16.848px;
+    padding: 6.48px 0px;
+    text-align: right;
+}
+
+#diaChi {
+    margin-top: 17px;
+    margin-bottom: 10px;
+    padding: 5px;
+    float: right;
+    margin-left: 50px;
+    display: none;
+}
+
+#quocGia,
+#city,
+#district,
+#ward {
+    padding: 5px;
+    font-size: 16px;
+    color: #7e7d7d;
+    margin-top: 5px;
+    width: 100%;
+    float: right;
+}
+
+#city2,
+#district2,
+#ward2,
+#city3,
+#district3,
+#ward3 {
+    width: 80%;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #c0bbbb;
+    font-size: 16px;
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #9297a0;
+}
+
+#diaChi input {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#diaChi button {
+    margin-top: 5px;
+}
+
+#edit {
+    padding: 5px;
+    color: white;
+    background-color: #332e2e;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.title-info {
+    color: rgb(224, 92, 92);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.tttt {
+    width: 100%;
+}
+
+.ttgh-name {
+    width: 100%;
+    /* column-span: 2; */
+    padding: 5px;
+}
+
+.ttgh-name input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #c0bbbb;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.ttgh-sdt {
+    padding: 5px;
+}
+
+.ttgh-sdt input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #c0bbbb;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.ttgh-email {
+    padding: 5px;
+}
+
+.ttgh-email input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #c0bbbb;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.ttgh-diaChi {
+    padding: 5px;
+}
+
+.ttgh-diaChi input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #c0bbbb;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.check-box-dc {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.check-box-dc label {
+    font-size: 15px;
+    margin-left: 5px;
+    color: #7e7d7d;
+}
+
+.name-sp p {
+    color: #7e7d7d;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: -15px;
+}
+
+.name-sp span {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.name-sp-price p {
+    float: right;
+    color: black;
+    font-weight: 600;
+}
+
+.datHang {
+    color: white;
+    background-color: rgb(230, 64, 64);
+    padding: 10px 20px 10px 20px;
+    font-size: 17px;
+    margin-top: 15px;
+    cursor: pointer;
+}

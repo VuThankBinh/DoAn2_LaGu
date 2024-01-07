@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Khăn choàng, Nón Thời Trang, Khăn Turban, Băng Đô &amp; Cài Tóc, Khăn Quàng Cổ &amp; Phụ Kiện Thời Trang Nữ">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="fontawesome/css/all.min.css" rel="stylesheet">
+    <script src="js/chucnang.js"></script>
+    <title>
+        Thanh toán
+    </title>
+    <link rel="shortcut icon" href="http://theme.hstatic.net/1000111569/1001042649/14/favicon.png?v=18"
+        type="image/png">
+    <script src="js/angular/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/angular/global.js"></script>
+    <script src="js/angular/thanhtoan.js"></script>
+    <link rel="stylesheet" href="css/GioHang.css">
+</head>
+
+<body>
+
+    <body ng-app="AppBanHang" ng-controller="ThanhToanCtrl">
+        <!-- MENU MAIN -->
+
+        <div class="container" style="margin-top: 0px;position: relative;">
+            <div class="banner-top1">
+                <div>
+                    <div class="logo">
+                        <h1 class="hidden"></h1>
+                        <a href="#" title="Khăn Phụ Kiện">
+                            <img src="//theme.hstatic.net/1000111569/1001042649/14/logo.png?v=18" alt="Khăn Phụ Kiện">
+                        </a>
+
+                    </div>
+                </div>
+                <div>
+                    <div style="margin-top: 1%; width: 100%;">
+                        <form action="#">
+                            <div style="display: flex;">
+                                <input type="hidden" name="type" value="product">
+                                <form action="#" style="margin:auto;max-width:300px">
+                                    <input type="text" placeholder="     Bạn cần tìm gì?" name="search2"
+                                        style="line-height: 40px;font-size: 12px; border-radius: 7px;color: grey;width: 320px;">
+                                    <button type="submit"
+                                        style="margin-top: 0.5%;margin-left: -45px; border: none;width: 40px;height: 40px;background-color: white"><i
+                                            class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div style="float: right;text-align: right; width: 50%;margin-right: 8%;">
+                    <ul>
+                        <li>
+                            <div>
+                                <button
+                                    style="border-radius:50px ; font-size:14px;width: 40px;height: 40px; border: none;"><i
+                                        class="fa-solid fa-phone" aria-hidden="true"></i></button>
+                                BÁN HÀNG: <a href="tel:0909251500" style="color: black;">
+                                    <span>0909251500</span>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <a href="#" style="color: black; font-size:14px">
+                                    <i class="fa-regular fa-file" aria-hidden="true"></i>
+                                    <span">82 Hồ Biểu Chánh, Phường 11, Quận Phú Nhuận, Tp Hồ Chí Minh</span>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-r">
+                <a href="/GioHang.html"><i class="fa-solid fa-cart-shopping"><span id="cart-count">0</span></i></a>
+                <a href="/Login.html"><i class="fa-solid fa-user" style="margin-right: 1%;"></i></a>
+
+            </div>
+            <nav>
+                <ul>
+                    <li ng-repeat="x in listDanhMuc">
+                        <a href="#" title="{{x.tenLoai}}">
+                            <img ng-src="{{current_img + x.hinhAnhMinhHoa}}" alt="">
+                            {{x.tenLoai}}
+                        </a>
+
+                    </li>
+                </ul>
+                <!-- <ul>
+                <li>
+                    <a href="#" title="Trang sức">
+                        <img src="img/icon_menu_1.png?v=18" alt="">
+                        <br>Trang sức
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#" title="Tất cả bông tai"> Tất cả bông tai <i class="fa-solid fa-angle-right"
+                                    style="margin-left:60%;margin-top: 10px;"></i>
+    
+                            </a>
+                            <ul>
+                                <li><a href="#" title="Bông tai bạc cao cấp">Bông tai bạc cao cấp</a></li>
+                                <li><a href="#" title="Bông tai Boho Vitage">Bông tai Boho Vitage</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Dây Chuyền Nữ - Vòng Cổ Bạc">Dây Chuyền Nữ - Vòng Cổ Bạc</a></li>
+                        <li><a href="#" title="Lắc tay - Vòng đeo tay">Lắc tay - Vòng đeo tay <i
+                                    class="fa-solid fa-angle-right" style="float: right;margin-top: 10px;"></i></a>
+                            <ul>
+                                <li><a href="#" title="Lắc Tay Nữ - Vòng đeo tay bạc">Lắc Tay Nữ - Vòng đeo tay bạc</a></li>
+                                <li><a href="#" title="Vòng tay Boho Vitage">Vòng tay Boho Vitage</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Cài Áo cao cấp - Hòa cài áo">Cài Áo cao cấp - Hòa cài áo</a></li>
+                        <li><a href="#" title="Dây nịt - Thắt lưng nữ - Đai váy">Dây nịt - Thắt lưng nữ - Đai váy</a></li>
+                        <li><a href="#" title="Hộp bảo quản trang sức">Hộp bảo quản trang sức</a></li>
+                        <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
+                        <li><a href="#" title="Mắt kính - Kính mát">Mắt kính - Kính mát</a></li>
+    
+                    </ul>
+                </li>
+                <li><a href="#" title="Mũ & nón">
+                        <img src="img/icon_menu_2.png?v=18" alt="">
+                        <br>Mũ & nón</a>
+                    <ul>
+                        <li><a href="#" title="Mũ Nón Cao Cấp">Mũ Nón Cao Cấp</a></li>
+                        <li>
+                            <a href="#" title="Mũ Vành-Nón cói Nữ">Mũ Vành-Nón cói Nữ
+                                <i class="fa-solid fa-angle-right" style="float: right;margin-top: 20px;"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" title="Nón Cói Hot">Nón Cói Hot</a></li>
+                                <li><a href="#" title="Nón Form Mềm"> Nón Form Mềm</a></li>
+                                <li><a href="#" title="Nón Cói Form Cứng">Nón Cói Form Cứng</a></li>
+                                <li><a href="#" title="Nón Cói Vành Rộng">Nón Cói Vành Rộng</a></li>
+                                <li><a href="#" title="Nón Cói Vành Nhỏ">Nón Cói Vành Nhỏ</a></li>
+                                <li><a href="#" title="Nón Cói Đi Biển">Nón Cói Đi Biển</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Mũ Cói di biển">Mũ Cói đi biển</a></li>
+                        <li><a href="#" title="Mũ Len - Nón Beret Nữ">Mũ Len - Nón Beret Nữ</a></li>
+                        <li><a href="#" title="Mũ Bucket - Nón Vải Nữ">Mũ Bucket - Nón Vải Nữ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Khăn choàng"><img
+                            src="img/icon_menu_3.png?v=18" alt="">
+                        <br>Khăn choàng
+                    </a>
+                    <ul>
+                        <li><a href="#" title="Khăn choàng bán chạy">Khăn choàng bán chạy</a></li>
+                        <li><a href="#" title="Khăn choàng Lụa/Silk">Khăn choàng Lụa/Silk</a></li>
+                        <li><a href="#" title="Khăn choàng thổ cẩm/Boho">Khăn choàng thổ cẩm/Boho</a></li>
+                        <li><a href="#" title="Khăn choàng đi biển">Khăn choàng đi biển</a></li>
+                        <li><a href="#" title="Khăn choàng Cashmere">Khăn choàng Cashmere</a></li>
+                        <li><a href="#" title="Khăn choàng Cổ Nam">Khăn choàng Cổ Nam</a></li>
+                        <li><a href="#" title="Khăn phối áo Vest">Khăn phối áo Vest</a></li>
+                        <li><a href="#" title="Nút cài khăn - Nhẫn cài khăn">Nút cài khăn - Nhẫn cài khăn</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Khăn vuông">
+                        <img src="img/icon_menu_4.png?v=18" alt="">
+                        <br>
+                        Khăn vuông</a>
+                    <ul>
+                        <li><a href="#" title="Tất cả khăn lụa vuông">Tất cả khăn lụa vuông</a></li>
+                        <li><a href="#" title="Khăn vuông 70*70cm">Khăn vuông 70*70cm</a></li>
+                        <li><a href="#" title="Khăn vuông 90*90cm">Khăn vuông 90*90cm</a></li>
+                        <li><a href="#" title="Khăn vuông 60*60cm">Khăn vuông 60*60cm</a></li>
+                        <li><a href="#" title="Khăn Bandana">Khăn Bandana</a></li>
+                        <li><a href="#" title="Khăn Turban">Khăn Turban</a></li>
+                        <li><a href="#" title="Khăn đồng phục">Khăn đồng phục</a></li>
+                        <li><a href="#" title="Nút cài khăn - Nhẫn cài khăn">Nút cài khăn - Nhẫn cài khăn</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Phụ kiện tóc"><img
+                            src="img/icon_menu_5.png?v=18" alt="">
+                        <br>
+                        Phụ kiện tóc
+                    </a>
+                    <ul>
+                        <li><a href="#" title="Hàng cao cấp">Hàng cao cấp</a></li>
+                        <li>
+                            <a href="#" title="Băng đô & cài tóc">Băng đô & cài tóc
+                                <i class="fa-solid fa-angle-right" style="float: right;margin-top: 20px;"></i>
+                            </a>
+                            <ul>
+                                <li><a href="#" title="Hàng cao cấp">Hàng cao cấp</a></li>
+                                <li><a href="#" title="Băng đô">Băng đô</a></li>
+                                <li><a href="#" title="Cài tóc">Cài tóc</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Kẹp tóc">Kẹp tóc
+                                <i class="fa-solid fa-angle-right" style="float: right;margin-top: 20px;"></i>
+                            </a>
+    
+                            <ul>
+                                <li><a href="#" title="Kẹp tóc đính đá">Kẹp tóc đính đá</a></li>
+                                <li><a href="#" title="Kẹp tóc càng cua">Kẹp tóc càng cua</a></li>
+                                <li><a href="#" title="Kẹp tóc ngọc trai">Kẹp tóc ngọc trai</a></li>
+                                <li><a href="#" title="Kẹp tóc trung niên, cho mẹ, cho bà">Kẹp tóc trung niên, cho mẹ, cho
+                                        bà</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Mấn áo dài, Mấn đội đầu cách tân">Mấn áo dài, Mấn đội đầu cách tân</a></li>
+                        <li><a href="#" title="Cột tóc">Cột tóc</a></li>
+                        <li><a href="#" title="Trâm cài tóc">Trâm cài tóc</a></li>
+                        <li><a href="#" title="Cài che tóc bạc / Che hói">Cài che tóc bạc / Che hói</a></li>
+                        <li><a href="#" title="Kẹp tóc cho người trung niên / lớn tuồi (Bà, Mẹ,...)">Kẹp tóc cho người trung
+                                niên / lớn tuồi (Bà, Mẹ,...)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Túi xách & ví">
+                        <img src="img/icon_menu_7.png?v=18" alt="">
+                        <br>
+                        Túi xách & ví
+                    </a>
+                    <ul>
+                        <li><a href="#" title="Túi Xách & Ví">Túi xách & Ví</a></li>
+                        <li><a href="#" title="Túi xách da">Túi xách da</a></li>
+                        <li><a href="#" title="Túi Cói Vintage">Túi Cói Vintage</a></li>
+                        <li><a href="#" title="Ví">Ví</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="BST Vintage">
+                        <img src="img/icon_menu_8.png?v=18" alt="">
+                        <br>
+                        BTS Vintage
+                    </a>
+                    <ul>
+                        <li><a href="#" title="Túi Cói Vintage">Túi Cói Vintage</a></li>
+                        <li><a href="#" title="Vòng Đeo tay Boho">Vòng Đeo tay Boho</a></li>
+                        <li><a href="#" title="Bông Tai Boho Vintage">Bông Tai Boho Vintage</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Phụ kiện">
+                        <img src="img/icon_menu_9.png?v=18" alt="">
+                        <br>
+                        Phụ kiện
+                    </a>
+                    <ul>
+                            <li><a href="#" title="Phụ kiện cho bé">Phụ kiện cho bé</a></li>
+                            <li><a href="#" title="Cài áo cao cấp">Cài áo cao cấp</a></li>
+                            <li><a href="#" title="Vòng tay Boho">Vòng tay Boho</a></li>
+                            <li><a href="#" title="Dây Nịt - Thắt lưng - Đai váy">Dây Nịt - Thắt lưng - Đai váy</a></li>
+                            <li><a href="#" title="Kính Mát Nữ"> Kính Mát Nữ</a></li>
+                            <li><a href="#" title="Tất Nữ - Vớ đẹp"> Tất nữ - vớ đẹp</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Hướng dẫn">
+                        <img src="img/icon_menu_10.png?v=18" alt="">
+                        <br>
+                        Hướng dẫn
+                    </a>
+                    <ul>
+                        <li><a href="#" title="Hướng dẫn">Hướng dẫn</a></li>
+                        <li><a href="#" title="Tin thời trang">Tin thời trang</a></li>
+                        <li><a href="#" title="Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp">Top 10 Dây chuyền bạc - Vòng cổ nữ đẹp</a></li>
+                        <li><a href="#" title="Top 10 Khăn Quàng cổ Len - Khăn Choàng Cổ Nữ đẹp">Top 10 Khăn Quàng cổ...</a></li>
+                    </ul>
+                </li>
+    
+    
+            </ul> -->
+            </nav>
+            <div class="title_GH">THANH TOÁN</div>
+            <div style="display: flex;width: 80%;margin-left: 10%; border-bottom: 1px solid #c6c8cb;padding-bottom: 15px;"
+                id="kosp">
+                <div style="width: 60%; border-right: 1px solid #c6c8cb; padding-right: 15px;">
+                    <div class="title-info">Thông tin thanh toán</div>
+                    <table class="tttt">
+
+                        <tbody class="ttgh">
+                            <tr>
+                                <td class="ttgh-name" colspan="2">
+                                    <label for="">Họ và Tên *</label>
+                                    <br>
+                                    <input type="text" name="name" id="HoTen" placeholder="Họ tên của bạn">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="ttgh-sdt" colspan="1">
+                                    <label for="">Số điện thoại *</label>
+                                    <br>
+                                    <input type="tel" name="sdt" id="sdt" placeholder="Số điện thoại của bạn">
+                                </td>
+                                <td class="ttgh-email" colspan="1">
+                                    <label for="">Địa chỉ Email (Tùy chọn)</label>
+                                    <br>
+                                    <input type="email" name="email" id="email" placeholder="Email của bạn">
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="ttgh-diaChi" colspan="1">
+                                    <label for="">Tỉnh/Thành phố *</label>
+                                    <br>
+                                    <select id="city3">
+                                        <option value="" selected>Chọn tỉnh thành</option>
+                                    </select>
+                                </td>
+                                <td class="ttgh-diaChi" colspan="1">
+                                    <label for="">Quận/Huyện *</label>
+                                    <br>
+                                    <select id="district3">
+                                        <option value="" selected>Chọn quận huyện</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="ttgh-diaChi" colspan="1">
+                                    <label for="">Xã/Phường *</label>
+                                    <br>
+                                    <select id="ward3">
+                                        <option value="" selected>Chọn phường xã</option>
+                                    </select>
+                                </td>
+                                <td class="ttgh-diaChi" colspan="1">
+                                    <label for="">Địa chỉ *</label>
+                                    <br>
+                                    <input type="text" name="dc" id="dccuthe" placeholder="Vd:thôn Vĩ dạ">
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+                <div style="width: 35%;margin-left: 40px;padding:10px ; height: fit-content ;border: 1px solid black;">
+                    <table class="ThanhToan-sp">
+                        <thead>
+                            <tr style="border-bottom: 3px solid #dfdbdb;">
+                                <th class="product-name" colspan="2">
+                                    <div class="title-info">Đơn hàng của bạn</div>
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="dssp" style="width: 30px;">
+                            <tr>
+                                <th class="title-thanhtoan" style="width: 20%;">
+                                    <p style="font-size: 16px;">Sản phẩm</p>
+                                </th>
+                                <td class="price-thanhtoan" style="width: 20%;">
+                                    <p style="font-size: 16px;">Tạm tính</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                        <tbody id="dsspmua">
+                            <tr>
+                                <th class="name-sp">
+                                    <p>2Hand Chính hãng | Air Jordan 5 Retro "What The" | Đỏ vàng - 42 <span>× 1</span>
+                                    </p>
+                                </th>
+                                <td class="name-sp-price">
+                                    <p>680.000đ</p>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        </tr>
+                        <tr>
+                            <th class="title-thanhtoan" style="width: 20%;">
+                                <p style="font-size: 16px;">Tạm tính</p>
+                            </th>
+                            <td class="price-thanhtoan">
+                                <p style="font-size: 17px;" id="tongtienhang">680.000đ</p>
+                            </td>
+                        </tr>
+                        <tr id="PhiShip">
+                            <th class="title-thanhtoan" style="width: 20%;">
+                                <p style="font-size: 16px;">Giao hàng</p>
+                            </th>
+                            <td class="price-thanhtoan">
+                                <p style="font-size: 17px;" id="price-ship">50.000đ</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="title-thanhtoan" style="width: 20%;">
+                                <p>Tổng</p>
+                            </th>
+                            <td class="price-thanhtoan">
+                                <p style="font-size: 20px;" id="tongg">730.000đ</p>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    <p style="margin-top: 10px;">Thanh toán khi nhận hàng</p>
+                    <button class="datHang" id="dathangbtn" ng-click="thanhtoan1()">ĐẶT HÀNG</button>
+                </div>
+
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+            <script>
+
+                var Parameter = {
+                    url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                    method: "GET",
+                    responseType: "application/json",
+                };
+                var citis = document.getElementById("city3");
+                var district = document.getElementById("district3");
+                var ward = document.getElementById("ward3");
+
+                var citis2 = document.getElementById("city2");
+                var district2 = document.getElementById("district2");
+                var ward2 = document.getElementById("ward2");
+
+                var promise1 = axios(Parameter);
+                var promise2 = axios(Parameter);
+                promise1.then(function (result) {
+                    renderCity(result.data);
+                });
+                function renderCity(data) {
+                    for (const x of data) {
+                        citis.options[citis.options.length] = new Option(x.Name, x.Id);
+                    }
+                    citis.onchange = function () {
+                        district.length = 1;
+                        ward.length = 1;
+                        if (this.value != "") {
+                            var result = data.filter(n => n.Id === this.value);
+
+                            for (const k of result[0].Districts) {
+                                district.options[district.options.length] = new Option(k.Name, k.Id);
+                            }
+                        }
+                    };
+                    district.onchange = function () {
+                        ward.length = 1;
+                        var dataCity = data.filter((n) => n.Id === citis.value);
+                        if (this.value != "") {
+                            const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+                            for (const w of dataWards) {
+                                ward.options[ward.options.length] = new Option(w.Name, w.Id);
+                            }
+                        }
+                    };
+                }
+
+
+
+                var arrspc = [];
+                var format1 = new Intl.NumberFormat({ maximumSignificantDigits: 3 });
+                var cart = JSON.parse(localStorage.getItem("cart"))
+                function showHD() {
+                    var sum = 0;
+                    document.getElementById('dsspmua').innerHTML = ``;
+                    if (cart.length == 0 || cart == null) {
+                        document.getElementById('kosp').innerHTML = `
+        <h4>Chưa có sản phẩm trong giỏ hàng</h4>
+        <br>
+        <a  onclick="backHome()" style="color: blue;cursor: pointer; margin-left:10px"> TIẾP TỤC XEM SẢN PHẨM</a>`;
+                    }
+                    else {
+                        for (let index = 0; index < cart.length; index++) {
+                            // console.log(cart[index])
+                            //  console.log(cart[index].tenSanPham);
+                            arrspc.push(cart[index])
+                            sum += parseFloat(cart[index].price * cart[index].quantity)
+                            document.getElementById('dsspmua').innerHTML += `
+            <tr><th class="name-sp">
+                            <p>${cart[index].name} <span>× ${cart[index].quantity}</span></p>
+                        </th>
+                        <td class="name-sp-price">
+                            <p>${format1.format(cart[index].price * cart[index].quantity)}đ</p>
+            </td></tr>
+            `
+
+
+
+                        }
+                        document.getElementById('tongtienhang').textContent = format1.format(sum) + "đ"
+                        var phiship = document.getElementById('price-ship').textContent.replace(/[^\d]+/g, '');
+                        var phishipInt = parseInt(phiship, 10);
+                        console.log(phishipInt);
+                        console.log(sum);
+                        document.getElementById('tongg').textContent = format1.format(sum + phishipInt) + "đ";
+                        // console.log(format1.format(sum))
+                        // // document.getElementById('sum-price').textContent = format1.format(sum) + 'đ';
+                        // document.getElementById('sum-price').textContent = format1.format(parseInt(sum)) + 'đ';
+                        // TinhSumTien();
+                        // tinh_tienCart();
+                    }
+                }
+                showHD();
+            </script>
+
+
+            <footer style="background-color: black; color:white;margin-top: 5%;padding-left: 5%;">
+                <div style=" font-family:initial; display:flex;">
+                    <div style="margin-top: 3%;">
+                        <img src="https://theme.hstatic.net/1000111569/1001042649/14/logo-footer.png?v=18" alt="">
+                    </div>
+                    <div style="margin-top: 3%;margin-left: 2%;">
+                        <h4>Khăn Phụ Kiện</h4>
+                        <ul>
+                            <li>CÔNG TY TNHH HILA VIỆT NAM<br>
+                                Ngày ĐK: 16/04/2018<br>
+                                Mã Số Thuế: 0314987556<br>
+                                Số ĐKKD: 41P8018868 <br>
+                                Ngày cấp: 12/09/2017<br>
+                                Phòng đăng ký kinh doanh Sở Kế Hoạch Đầu Tư TPHCM<br>
+                                Hotline: 0909.25.15.00
+                            </li>
+                        </ul>
+
+                        <h4><i class="fa fa-map-signs"></i> HỆ THỐNG CỬA HÀNG</h4>
+
+                        <ul>
+                            <li><i class="fa fa-map-marker mr5"></i>82 Hồ Biểu Chánh, Phường 11, Quận Phú Nhuận, Tp Hồ
+                                Chí Minh
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 3%; margin-left: 1%;margin-right: 3%;">
+                        <h4>THÔNG TIN HỖ TRỢ</h4>
+                        <ul>
+                            <li>
+                                <a href="#" title="Thanh Toán" style="color: white;">Thanh Toán</a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Chính Sách Giao Nhận" style="color: white;">Chính Sách Giao Nhận</a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Đổi Trả &amp; Bảo Hành" style="color: white;">Đổi Trả &amp; Bảo
+                                    Hành</a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Chính Sách Bảo Mật" style="color: white;">Chính Sách Bảo Mật</a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Khách Hàng Thân Thiết" style="color: white;">Khách Hàng Thân
+                                    Thiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 3%;">
+                        <h4 class="">KẾT NỐI VỚI CHÚNG TÔI</h4>
+                        <div class="social">
+                            <ul class="footer-list-menu">
+                                <li>Hãy kết nối với chúng tôi.</li>
+                            </ul>
+                            <ul style="display: flex;justify-content: center; margin-top: 5px;margin-bottom: 5px;">
+
+                                <li style="margin-right: 15px;">
+                                    <a target="_blank" href="https://www.facebook.com/yenshop1991">
+                                        <i class="fa-brands fa-facebook" style="color: #f2f2f2;font-size: 30px;"></i>
+                                    </a>
+                                </li>
+                                <li style="margin-right: 15px;">
+                                    <a style="color: white;" target="_blank"
+                                        href="https://www.instagram.com/khanphukien/">
+                                        <i class="fa-brands fa-instagram" style="font-size: 30px;"></i></a>
+                                </li>
+
+
+                                <li style="margin-right: 15px;width: 30%;">
+                                    <a style="color: white;" target="_blank"
+                                        href="https://www.youtube.com/channel/UCJquPQtn2dqiZ33IzGIP_zA"><i
+                                            class="fa-brands fa-youtube" style="font-size: 30px;"></i></a>
+                                </li>
+
+                            </ul>
+
+                            <div>
+                                <a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=38057" target="_blank">
+                                    <img src="http://theme.hstatic.net/1000111569/1001042649/14/dkbocongthuong.png?v=18"
+                                        alt="Bộ công thương">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </DIV>
+                <div style="margin-top: 3%;">
+                    <p style="text-align: center;padding-bottom: 5px;">Một sản phẩm của Hila Việt Nam</p>
+                </div>
+            </footer>
+    </body>
+</body>
+
+</html>

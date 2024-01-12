@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GateWay_BTL_LaGu.props" />
+</Project>
